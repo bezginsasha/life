@@ -1,4 +1,5 @@
 from PIL import Image
+import curses
 
 arr = []
 
@@ -34,3 +35,18 @@ def get_char_to_display(in_value):
 	else function return space
 	"""
 	return '#' if in_value else ' '
+
+def draw_current_arr(arr):
+	"""
+	function to draw arr to console
+	i add try catch because in borders
+	function often stdscr.addstr crashes
+	"""
+	for y, y_value in enumerate(arr):
+		for x, x_value in enumerate(y_value):
+			try:
+				stdscr.addstr(y,x,get_char_to_display(x_value))
+			except curses.error:
+				pass
+
+	stdscr.refresh()
