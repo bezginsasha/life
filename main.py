@@ -50,3 +50,44 @@ def draw_current_arr(arr):
 				pass
 
 	stdscr.refresh()
+
+def get_count_life_neighbor(arr, x, y, max_x, max_y):
+	"""
+	function lools at neighbors and
+	returns count of True neighbors
+	"""
+	res_count = 0
+
+	if x > 0 and y > 0:
+		if arr[y-1][x-1]:
+			res_count += 1
+
+	if y > 0:
+		if arr[y-1][x]:
+			res_count += 1
+
+	if y > 0 and x < max_x:
+		if arr[y-1][x+1]:
+			res_count += 1
+
+	if x > 0:
+		if arr[y][x-1]:
+			res_count += 1;
+
+	if x < max_x:
+		if arr[y][x+1]:
+			res_count += 1
+
+	if y < max_y and x > 0:
+		if [y+1][x-1]:
+			res_count += 1
+
+	if y < max_y:
+		if arr[y+1][x]:
+			res_count += 1
+
+	if y < max_y and x < max_x:
+		if arr[y+1][x+1]:
+			res_count += 1
+
+	return res_count
