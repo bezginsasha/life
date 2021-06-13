@@ -1,18 +1,8 @@
 import curses
 import time
+from PIL import Image
 
-stdscr = curses.initscr()
-win_width = curses.COLS
-win_height = curses.LINES
-
-stdscr.addstr(0,0,'$')
-stdscr.addstr(1,1,'$')
-stdscr.addstr(2,2,'$')
-stdscr.refresh()
-time.sleep(2)
-
-stdscr.addstr(0,0,'%')
-stdscr.addstr(1,1,'%')
-stdscr.addstr(2,2,'%')
-stdscr.refresh()
-time.sleep(2)
+img = Image.open('default.png')
+pixel_map = img.load()
+pixel = pixel_map[1,0]
+print(pixel)
