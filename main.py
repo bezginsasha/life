@@ -26,3 +26,11 @@ def read_image_to_array():
 			pixel = img.getpixel((x,y))
 			res_arr[y].append(is_there_life(pixel))
 	return res_arr
+
+def get_char_to_display(in_value):
+	"""
+	if input value is true it means need to draw element
+	and therefore function returns # symbol
+	else function return space
+	"""
+	return '#' if in_value else ' '
