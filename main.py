@@ -79,7 +79,7 @@ def get_count_life_neighbor(arr, x, y, max_x, max_y):
 			res_count += 1
 
 	if y < max_y and x > 0:
-		if [y+1][x-1]:
+		if arr[y+1][x-1]:
 			res_count += 1
 
 	if y < max_y:
