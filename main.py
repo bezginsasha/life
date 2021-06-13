@@ -91,3 +91,23 @@ def get_count_life_neighbor(arr, x, y, max_x, max_y):
 			res_count += 1
 
 	return res_count
+
+def life(arr):
+	"""
+	function looks at input array, copy it to res_array
+	and change res_array with rules of game
+	"""
+	res_arr = arr
+	max_x = len(arr[0]) - 1
+	max_y = len(arr) - 1
+
+	for y, y_value in enumerate(arr):
+		for x, x_value in enumerate(y_value):
+			neighb_count = get_count_life_neighbor(arr, x, y, max_x, max_y)
+			if x_value:
+				if neighb_count < 2 or neighb_count > 3:
+					res_arr[y][x] = False
+			else:
+				if neighb_count == 3:
+					res_arr[y][x] = True
+	return res_arr
