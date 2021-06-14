@@ -11,13 +11,13 @@ def is_there_life(pixel):
 	"""
 	return pixel[0] == 0
 
-def read_image_to_array():
+def read_image_to_array(image_name='default.png'):
 	"""
 	function read all pixels in default.png image
 	and every black pixel understands as live cell
 	then function create matrix list of boolean and returns it
 	"""
-	img = Image.open('default.png')
+	img = Image.open(image_name)
 	res_arr = []
 
 	for y in range(img.height):
