@@ -111,3 +111,16 @@ def life(arr):
 				if neighb_count == 3:
 					res_arr[y][x] = True
 	return res_arr
+
+def args_to_dictionaty(args):
+	"""
+	function takes arguments from command line
+	and put them into returning dictionary
+	"""
+	res_args = {}
+	for i, arg in enumerate(args[1:]):
+		if i % 2 == 0:
+			key = arg
+		else:
+			res_args[key] = arg
+	return res_args
