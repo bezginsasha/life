@@ -1,5 +1,8 @@
 from PIL import Image
 import curses
+import time
+import sys
+import keyboard
 
 arr = []
 
@@ -131,3 +134,26 @@ def args_to_dictionaty(args):
 		else:
 			res_args[key] = arg
 	return res_args
+
+stdscr = curses.initscr()
+
+args = args_to_dictionaty(sys.argv)
+image_name = args.get('--image', '')
+speed = float(args.get('--speed', 0.2))
+
+if image_name != '':
+	arr = read_image_to_array(image_name)
+	image_width, image_height = get_image_size(image_name)
+else:
+	arr = read_image_to_array()
+	image_width, image_height = get_image_size()
+
+if image_width > curses.COLS or image_height > curses.LINES:
+	raise NameError('image too big')
+
+while 1 < 2:
+	draw_current_arr(arr)
+	time.sleep(speed)
+	arr = life(arr)
+	if keyboard.is_pressed('q'):
+		break
