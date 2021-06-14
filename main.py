@@ -11,6 +11,13 @@ def is_there_life(pixel):
 	"""
 	return pixel[0] == 0
 
+def get_image_size(image_name='default.png'):
+	"""
+	return width and height
+	"""
+	img = Image.open(image_name)
+	return (img.width, img.height)
+
 def read_image_to_array(image_name='default.png'):
 	"""
 	function read all pixels in default.png image
